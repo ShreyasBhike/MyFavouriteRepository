@@ -15,21 +15,45 @@
             font-family: 'Georgia', serif;
             background: linear-gradient(135deg, #ffc6d3 0%, #ffe5ec 100%);
             min-height: 100vh;
+            min-height: -webkit-fill-available;
             display: flex;
             justify-content: center;
             align-items: center;
-            overflow: hidden;
+            overflow-x: hidden;
+            overflow-y: auto;
+            padding: 20px;
         }
 
         .letter-container {
             background: rgba(255, 255, 255, 0.95);
             max-width: 600px;
+            width: 100%;
             padding: 60px 50px;
             border-radius: 20px;
             box-shadow: 0 20px 60px rgba(255, 105, 180, 0.3);
             position: relative;
             z-index: 10;
             animation: fadeIn 1s ease-out;
+            margin: auto;
+        }
+        
+        @media (max-width: 768px) {
+            .letter-container {
+                padding: 40px 30px;
+            }
+            
+            h1 {
+                font-size: 24px;
+            }
+            
+            .letter-content {
+                font-size: 16px;
+            }
+            
+            .heart-icon {
+                font-size: 50px;
+                margin-bottom: 20px;
+            }
         }
 
         @keyframes fadeIn {
@@ -88,9 +112,10 @@
         .confetti {
             position: fixed;
             font-size: 20px;
-            position: absolute;
             animation: fall linear infinite;
             user-select: none;
+            pointer-events: none;
+            z-index: 1;
         }
 
         @keyframes fall {
@@ -104,7 +129,7 @@
 <body>
     <div class="letter-container">
         <div class="heart-icon">♥</div>
-        <h1>My Dearest Prerana ♥</h1>
+        <h1>My Dearest Love</h1>
         <div class="letter-content">
             <p>As we step into 2026 together, I can't help but smile thinking about how lucky I am to have you in my life. Starting this new year with you just feels right.</p>
             
@@ -114,7 +139,7 @@
             
             <p>Here's to us, to 2026, and to wherever this journey takes us. I'm really glad you're here.</p>
         </div>
-        <div class="signature"> Yours Truely ♥</div>
+        <div class="signature">Forever yours ♥</div>
     </div>
 
     <script>
@@ -149,5 +174,4 @@
         }
     </script>
 </body>
-
 </html>
