@@ -1,0 +1,152 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Love Letter</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Georgia', serif;
+            background: linear-gradient(135deg, #ffc6d3 0%, #ffe5ec 100%);
+            min-height: 100vh;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            overflow: hidden;
+        }
+
+        .letter-container {
+            background: rgba(255, 255, 255, 0.95);
+            max-width: 600px;
+            padding: 60px 50px;
+            border-radius: 20px;
+            box-shadow: 0 20px 60px rgba(255, 105, 180, 0.3);
+            position: relative;
+            z-index: 10;
+            animation: fadeIn 1s ease-out;
+        }
+
+        @keyframes fadeIn {
+            from {
+                opacity: 0;
+                transform: translateY(30px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        .heart-icon {
+            text-align: center;
+            font-size: 60px;
+            color: #ff69b4;
+            margin-bottom: 30px;
+            animation: heartbeat 2s ease-in-out infinite;
+        }
+
+        @keyframes heartbeat {
+            0%, 100% { transform: scale(1); }
+            25% { transform: scale(1.1); }
+            50% { transform: scale(1); }
+        }
+
+        h1 {
+            color: #ff69b4;
+            font-size: 32px;
+            text-align: center;
+            margin-bottom: 30px;
+            font-weight: 300;
+            letter-spacing: 2px;
+        }
+
+        .letter-content {
+            color: #555;
+            line-height: 1.8;
+            font-size: 18px;
+            text-align: justify;
+        }
+
+        .letter-content p {
+            margin-bottom: 20px;
+        }
+
+        .signature {
+            text-align: right;
+            margin-top: 40px;
+            color: #ff69b4;
+            font-style: italic;
+            font-size: 20px;
+        }
+
+        .confetti {
+            position: fixed;
+            font-size: 20px;
+            position: absolute;
+            animation: fall linear infinite;
+            user-select: none;
+        }
+
+        @keyframes fall {
+            to {
+                transform: translateY(100vh) rotate(360deg);
+                opacity: 0;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="letter-container">
+        <div class="heart-icon">♥</div>
+        <h1>My Dearest Prerana ♥</h1>
+        <div class="letter-content">
+            <p>As we step into 2026 together, I can't help but smile thinking about how lucky I am to have you in my life. Starting this new year with you just feels right.</p>
+            
+            <p>You've become such an important part of my world—the person who makes ordinary days extraordinary, who understands me in ways I didn't know I needed, and who makes me believe in all the good things life has to offer.</p>
+            
+            <p>I'm not just happy you're here now; I genuinely hope you'll be part of my future too. I want more adventures with you, more late-night conversations, more shared dreams, and more memories we'll look back on and laugh about.</p>
+            
+            <p>Here's to us, to 2026, and to wherever this journey takes us. I'm really glad you're here.</p>
+        </div>
+        <div class="signature"> Yours Truely ♥</div>
+    </div>
+
+    <script>
+        function createConfetti() {
+            const confetti = document.createElement('div');
+            confetti.classList.add('confetti');
+            confetti.textContent = '♥';
+            confetti.style.color = '#ff69b4';
+            
+            const startX = Math.random() * window.innerWidth;
+            const size = Math.random() * 20 + 15;
+            const duration = Math.random() * 3 + 3;
+            const delay = Math.random() * 2;
+            
+            confetti.style.left = startX + 'px';
+            confetti.style.top = '-30px';
+            confetti.style.fontSize = size + 'px';
+            confetti.style.animationDuration = duration + 's';
+            confetti.style.animationDelay = delay + 's';
+            
+            document.body.appendChild(confetti);
+            
+            setTimeout(() => {
+                confetti.remove();
+            }, (duration + delay) * 1000);
+        }
+
+        setInterval(createConfetti, 200);
+
+        for (let i = 0; i < 30; i++) {
+            setTimeout(createConfetti, i * 100);
+        }
+    </script>
+</body>
+</html>
